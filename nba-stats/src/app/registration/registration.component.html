@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="signUp($event)" class="reg-form">
+  <h1 mat-dialog-title>Sign up</h1>
+  <div mat-dialog-content>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Username" class="form-control" formControlName="username" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="form.controls['username'].hasError('required')">
+          Please, type you nick!
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" class="form-control" formControlName="password" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="form.controls['password'].hasError('required')">
+          Please, type you password!
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password 2" class="form-control" formControlName="password2" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="form.controls['password2'].hasError('required')">
+          Please, repeat password!
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Email" class="form-control" formControlName="email" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="form.controls['email'].hasError('required')">
+          Please, type you email!
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="First name" class="form-control" formControlName="first_name">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Last name" class="form-control" formControlName="last_name">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Site" class="form-control" formControlName="site" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="form.controls['site'].hasError('required')">
+          Please, tell where are you from!
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button cdkFocusInitial class="btn-sign-up">Sign up</button>
+  </div>
+</form>

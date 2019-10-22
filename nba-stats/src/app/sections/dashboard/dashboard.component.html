@@ -1,0 +1,33 @@
+<div class="container" fxLayout="row">
+  <div class="left-container" fxFlex="60">
+    <app-map class="map"></app-map>
+  </div>
+  <div class="right-container" fxLayout="column" fxLayoutAlign="space-around center" fxFlex="40">
+    <div class="table">
+      <h2>Best players in {{selectedSeason.name}}</h2>
+      <app-table
+        [endpoint]="endpointPlayers"
+        [title]="'players'"
+        [filters]="{season: selectedSeason.id}"
+        [excludeColumns]="['ORB', 'DRB', 'AST', 'DWS', 'WS', 'VORP', 'BPM', 'DBPM', 'TRB', 'GS', 'OWS', 'BLK', 'OBPM', 'PER', 'TS%', 'USG%', 'EFG%', 'FT%', 'TOV', 'STL']"
+        [showPaginator]="false"
+        [maxPageSize]="5"
+        [initSorting]="'-PTS'"
+        ></app-table>
+    </div>
+  
+    <div class="table">
+      <h2>Best teams in {{selectedSeason.name}}</h2>
+      <app-table
+        class="table"
+        [endpoint]="endpointTeams"
+        [title]="'teams'"
+        [excludeColumns]="['PF', 'BLK', 'DRTG', 'NRTG', 'OEFG%', 'Defg%', 'ORB', 'DRB', 'DRB%', 'ORTG', 'DRTG', 'NRTG', 'Pace', 'DTOV%', 'ORB%', 'OTOV%', 'AST', 'DWS', 'WS', 'VORP', 'BPM', 'DBPM', 'TRB', 'GS', 'OWS', 'OBPM', 'PER', 'TS%', 'USG%', 'EFG%', 'FT%', 'TOV', 'STL']"
+        [filters]="{season: selectedSeason.id}"
+        [showPaginator]="false"
+        [maxPageSize]="5"
+        [initSorting]="'-W'"
+        ></app-table>
+    </div>
+  </div>
+</div>

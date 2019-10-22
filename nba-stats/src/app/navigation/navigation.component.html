@@ -1,0 +1,30 @@
+<mat-drawer-container class="container" autosize>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="width100">
+        <div fxLayout="row" fxLayoutGap="60px">
+          <a routerLink="" class="link link--white">NBA Stats</a>
+          <a routerLink="/players" routerLinkActive="active" class="link link--white">Players</a>
+          <a routerLink="/teams" routerLinkActive="active" class="link link--white">Teams</a>
+          <a routerLink="/matches" routerLinkActive="active" class="link link--white">Matches</a>
+        </div>
+        <div class="nav-account">
+          <span *ngIf="isAuthenticated()">Credit: {{user_credits}}</span>
+          <button *ngIf="isAuthenticated()" mat-button [matMenuTriggerFor]="menu" class="username">{{user}}<mat-icon>format_align_right</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <a routerLink="admin" class="link"><button *ngIf="isAdmin()" mat-menu-item>Admin</button></a>
+            <a routerLink="/" (click)="logout()" class="link"><button mat-menu-item>Logout</button></a>
+          </mat-menu>
+          <div *ngIf="!isAuthenticated()">
+            <span (click)="openDialog()" class="link link--white">Login</span>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="sidenav-content">
+    <ng-content></ng-content>
+  </div>
+
+</mat-drawer-container>

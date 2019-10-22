@@ -1,0 +1,73 @@
+import { NgModule } from '@angular/core';
+import { MatButtonModule,
+         MatCheckboxModule,
+         MatToolbarModule,
+         MatIconModule,
+         MatSidenavModule,
+         MatListModule,
+         MatMenuModule,
+         MatTableModule,
+         MatFormFieldModule,
+         MatInputModule,
+         MatPaginatorModule,
+         MatProgressSpinnerModule,
+         MatSortModule,
+         MatSelectModule,
+         MatTooltipModule,
+         MatCardModule,
+         MatChipsModule,
+         MatSnackBarModule,
+         MatDialogModule
+        } from '@angular/material';
+
+  import {DragDropModule} from '@angular/cdk/drag-drop';
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    MatButtonModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatCardModule,
+    DragDropModule,
+    MatSnackBarModule,
+    MatListModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatMenuModule,
+    MatDialogModule
+  ],
+  exports: [
+    MatButtonModule,
+    DragDropModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatSortModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatDialogModule,
+    MatChipsModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+  ],
+})
+export class MaterialModule { }

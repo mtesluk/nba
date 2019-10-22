@@ -1,0 +1,5 @@
+.tox/
+data/*
+venv/
+logs/
+.vscode/

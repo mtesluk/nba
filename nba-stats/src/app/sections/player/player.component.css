@@ -1,0 +1,10 @@
+.container {
+    margin: auto;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.chip-teams {
+    margin-left: 10px;
+    margin-bottom: 20px;
+}

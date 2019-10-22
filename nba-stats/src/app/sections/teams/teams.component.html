@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="options" fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field>
+      <mat-label>Season</mat-label>
+      <mat-select [(value)]="selectedSeason">
+        <mat-option *ngFor="let season of seasons" [value]="season.id">
+          {{season.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <app-table
+    [namesToSort]="namesToSort"
+    [namesToFilter]="namesToFilter"
+    [compare]="true"
+    [endpoint]="endpointUrl"
+    [title]="'teams'"
+    [filters]="{season: selectedSeason}"
+    ></app-table>
+</div>

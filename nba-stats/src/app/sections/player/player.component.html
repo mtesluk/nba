@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 *ngIf="data">{{data.name}}</h1>
+  <h3>Position: {{data.position}}</h3>
+  <h3>Age: {{data.age}}</h3>  
+
+  <div fxLayout="row" fxLayoutAlign="left center">
+    <mat-form-field>
+      <mat-label>Season</mat-label>
+      <mat-select [(value)]="selectedSeason" (selectionChange)="selectionChanged($event)">
+        <mat-option *ngFor="let season of seasons" [value]="season.id">
+          {{season.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-chip-list class="chip-teams">
+      <mat-chip *ngFor="let team of data.teams" color="accent" selected>{{team.name}}</mat-chip>
+    </mat-chip-list>     
+  </div> 
+      
+  <app-table
+      [namesToSort]="[]"
+      [namesToFilter]="[]"
+      [endpoint]="endpointUrl"
+      [title]="'seasons'"
+      [filters]="{player: id}"
+      ></app-table>
+</div>

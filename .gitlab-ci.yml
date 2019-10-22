@@ -1,0 +1,52 @@
+stages:
+  - verify_version
+  - code_analisys_django
+  - test_django
+  - code_analisys_angular
+
+variables:
+  MYSQL_DATABASE: nba
+  MYSQL_ROOT_PASSWORD: root
+
+verify_version:
+  image: python:3.6
+  stage: verify_version
+  script:
+  - git diff ${CI_COMMIT_SHA} origin/master --name-only | grep -q CHANGELOG.md || (echo 'changelog not updated!' && exit 1)
+  except:
+  - master
+
+static_code_analisys_backend:
+  image: python:3.6
+  before_script:
+  - python -V
+  - pip install -r requirements.txt
+  stage: code_analisys_django
+  script:
+  - tox -e py3-flake8
+  allow_failure: true
+
+backend_test:
+  image: python:3.6
+  before_script:
+  - python -V
+  - pip install -r requirements.txt
+  stage: test_django
+  script:
+  - apt-get install mariadb-server mariadb-client
+  - service mysql start
+  - python project/manage.py test project/nba/tests
+  
+static_code_analisys_frontend:
+  image: docker
+  services:
+  - docker:dind
+  stage: code_analisys_angular
+  script:
+  - docker -v
+  - docker build -t nba nba-stats/.
+  - docker run -it -d --name nba-container nba
+  - docker ps -a
+  - docker exec -i nba-container npm run lint
+  - docker exec -i nba-container npm run build
+  allow_failure: true

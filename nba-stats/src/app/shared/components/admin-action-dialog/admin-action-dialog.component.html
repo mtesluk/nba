@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>{{ data.type | titlecase }} confirmation</h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="data.choices" class="form-control">
+      <mat-select [(value)]="selectedChoice" multiple placeholder="Type">
+        <mat-option *ngFor="let choice of choices" [value]="choice">
+          {{choice}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  <mat-form-field class="form-control">
+    <mat-select [(value)]="selectedSeason" [multiple]="!data.seasonsDb" placeholder="Season">
+      <mat-option *ngFor="let season of seasons" [value]="season">
+        {{season}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="form-control">
+    <mat-select [(value)]="selectedSeasonType">
+      <mat-option *ngFor="let season of seasonTypes" [value]="selectedSeasonType">
+        {{season}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button cdkFocusInitial (click)="confirm()" class="btn">OK</button>
+</div>

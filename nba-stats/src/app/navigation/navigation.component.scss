@@ -1,0 +1,45 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.active, .link:hover {
+    color: #ffbb33;
+    text-decoration: none;
+}
+
+.username {
+    font-size: 30px;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.sidenav-content {
+    margin: auto;
+    width: 100%;
+}
+
+.sidenav {
+    padding: 20px;
+}
+
+.link {
+    text-decoration: none;
+    cursor: pointer;
+
+    &--white {
+        color: white;
+    }
+}
+
+.link:first-child,
+.nav-account {
+    font-size: 40px;
+}
+
+.account-name {
+    margin-right: 20px;
+}

@@ -1,0 +1,22 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body {
+    margin: 0;
+    color: black;
+}
+
+.snackbar {
+    background-color: rgb(28, 190, 6);
+    font-weight: 700;
+    font-size: 40px;
+    color: rgb(59, 56, 56);
+    width: 15vw;
+    height: 8vh;
+ }
+
+.mat-dialog-title {
+    font-size: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}

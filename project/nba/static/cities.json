@@ -1,0 +1,182 @@
+[
+    {
+      "name": "Boston Celtics",
+      "latitude": 42.32333,
+      "longitude": -71.080239,
+      "division": "Atlantic"
+    },
+    {
+      "name": "Brooklyn Nets",
+      "latitude": 40.637409,
+      "longitude": -73.9936,
+      "division": "Atlantic"
+    },
+    {
+      "name": "New York Knicks",
+      "latitude": 40.654483,
+      "longitude": -74.556674,
+      "division": "Atlantic"
+    },
+    {
+      "name": "Philadelphia 76ers",
+      "latitude": 39.979502,
+      "longitude": -75.173184,
+      "division": "Atlantic"
+    },
+    {
+      "name": "Toronto Raptors",
+      "latitude": 43.659245,
+      "longitude": -79.377157,
+      "division": "Atlantic"
+    },
+    {
+      "name": "Chicago Bulls",
+      "latitude": 41.999663,
+      "longitude": -87.555458,
+      "division": "Central"
+    },
+    {
+      "name": "Cleveland Cavaliers",
+      "latitude": 41.486306,
+      "longitude": -81.680715,
+      "division": "Central"
+    },
+    {
+      "name": "Detroit Pistons",
+      "latitude": 42.420464,
+      "longitude": -83.085806,
+      "division": "Central"
+    },
+    {
+      "name": "Indiana Pacers",
+      "latitude": 39.781598,
+      "longitude": -86.146317,
+      "division": "Central"
+    },
+    {
+      "name": "Milwaukee Bucks",
+      "latitude": 43.141418,
+      "longitude": -87.870794,
+      "division": "Central"
+    },
+    {
+      "name": "Atlanta Hawks",
+      "latitude": 33.766851,
+      "longitude": -84.381832,
+      "division": "Southeast"
+    },
+    {
+      "name": "Charlotte Hornets",
+      "latitude": 35.326262,
+      "longitude": -80.865105,
+      "division": "Southeast"
+    },
+    {
+      "name": "Miami Heat",
+      "latitude": 25.764762,
+      "longitude": -80.214807,
+      "division": "Southeast"
+    },
+    {
+      "name": "Orlando Magic",
+      "latitude": 28.601579,
+      "longitude": -81.365905,
+      "division": "Southeast"
+    },
+    {
+      "name": "Washington Wizards",
+      "latitude": 38.940102,
+      "longitude": -77.059478,
+      "division": "Southeast"
+    },
+    {
+      "name": "Dallas Mavericks",
+      "latitude": 32.815149,
+      "longitude": -96.785096,
+      "division": "Southwest"
+    },
+    {
+      "name": "Houston Rockets",
+      "latitude": 29.761732,
+      "longitude": -95.383595,
+      "division": "Southwest"
+    },
+    {
+      "name": "Memphis Grizzlies",
+      "latitude": 35.128916,
+      "longitude": -90.030942,
+      "division": "Southwest"
+    },
+    {
+      "name": "New Orleans Pelicans",
+      "latitude": 29.953805,
+      "longitude": -90.063411,
+      "division": "Southwest"
+    },
+    {
+      "name": "San Antonio Spurs",
+      "latitude": 29.410264,
+      "longitude": -98.533008,
+      "division": "Southwest"
+    },
+    {
+      "name": "Denver Nuggets",
+      "latitude": 39.738392,
+      "longitude": -104.987644,
+      "division": "Northwest"
+    },
+    {
+      "name": "Minnesota Timberwolves",
+      "latitude": 45.012053,
+      "longitude": -93.328592,
+      "division": "Northwest"
+    },
+    {
+      "name": "Portland Trail Blazers",
+      "latitude": 45.509802,
+      "longitude": -122.602568,
+      "division": "Northwest"
+    },
+    {
+      "name": "Oklahoma City Thunder",
+      "latitude": 35.458366,
+      "longitude": -97.524625,
+      "division": "Northwest"
+    },
+    {
+      "name": "Utah Jazz",
+      "latitude": 40.825186,
+      "longitude": -111.880686,
+      "division": "Northwest"
+    },
+    {
+      "name": "Golden State Warriors",
+      "latitude": 37.809244,
+      "longitude": -122.437365,
+      "division": "Pacific"
+    },
+    {
+      "name": "LA Clippers",
+      "latitude": 34.339467,
+      "longitude": -118.768277,
+      "division": "Pacific"
+    },
+    {
+      "name": "Los Angeles Lakers",
+      "latitude": 33.741495,
+      "longitude": -117.836038,
+      "division": "Pacific"
+    },
+    {
+      "name": "Phoenix Suns",
+      "latitude": 33.391536,
+      "longitude": -112.097844,
+      "division": "Pacific"
+    },
+    {
+      "name": "Sacramento Kings",
+      "latitude": 38.580182,
+      "longitude": -121.494395,
+      "division": "Pacific"
+    }
+]

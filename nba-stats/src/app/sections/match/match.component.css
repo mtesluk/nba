@@ -1,0 +1,25 @@
+table{
+  padding: 30px;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.mat-header-cell{
+  background-color: orange;
+  font-weight: bold;
+  font-size: x-large;
+  text-align: center;
+}
+.stats{
+  font-weight: bold;
+  text-align: left;
+}
+.team{
+  text-align: center;
+  font-size: large;
+}
+tr:hover{
+  background-color: rgba(224, 222, 222, 0.712);
+  font-weight: bold;
+}
