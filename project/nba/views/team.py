@@ -41,5 +41,8 @@ class TeamViewSet(CommonMixin, viewsets.ModelViewSet):
     @decorators.list_route(methods=['get'], permission_classes=[AllowAny, ],)
     def coordinates(self, request):
         with open('nba/static/cities.json', 'r') as file:
-            cities = [{**city, 'id': self.queryset.get(name=city['name']).id} for city in json.load(file)]
+            try:
+                cities = [{**city, 'id': self.queryset.get(name=city['name']).id} for city in json.load(file)]
+            except Exception:
+                return response.Response([], status=200)
             return response.Response(cities)

@@ -16,13 +16,15 @@ export class DashboardComponent implements OnInit {
 
   endpointPlayers = URLS.players;
   endpointTeams = URLS.teams;
-  selectedSeason: Season;
+  selectedSeason: Season = {name: '2018-19', id: 0};
 
   constructor(private _service: DashboardService) { }
 
   ngOnInit() {
     this._service.getData(URLS.seasons).subscribe(response => {
-      this.selectedSeason = response.results[0];
+      if (response.results.length) {
+        this.selectedSeason = response.results[0];
+      }
     });
   }
 }

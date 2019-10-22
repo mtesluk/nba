@@ -24,7 +24,9 @@ export class PlayersComponent implements OnInit {
   ngOnInit() {
     this._servicePlayer.getData(URLS.seasons).subscribe(response => {
       this.seasons = response.results;
-      this.selectedSeason = this.seasons[0].id;
+      if (this.seasons.length) {
+        this.selectedSeason = this.seasons[0].id;
+      }
     });
   }
 }
