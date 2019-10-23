@@ -37,7 +37,7 @@ class FiltersAndOrderingMixin:
     def filter_queryset(self, queryset):
         queryset = super().filter_queryset(queryset)
         season = self.request.GET.get('season', None)
-        order_name = self.request.GET.get('ordering', '')
+        order_name = self.request.GET.get('ordering', 'PTS')
 
         queryset = self._season_filter(queryset, season)
         queryset = self._stats_order(queryset, season, order_name)
