@@ -42,7 +42,7 @@
   <h4>You can select row from main table, this row will occur in table below</h4>
 </div>
 
-<div class="mat-elevation-z8 margin" *ngIf="compare">
+<div class="mat-elevation-z8 table-container margin" *ngIf="compare">
   <table class="table" mat-table [dataSource]="dataCompare">
     <div *ngFor="let column of displayedColumns">
       <ng-container [matColumnDef]="column" class="column">
