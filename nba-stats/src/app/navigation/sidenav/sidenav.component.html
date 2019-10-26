@@ -1,0 +1,16 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side" class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/players" routerLinkActive="active" class="link link--white" (click)="sidenav.toggle()">Players</a>
+      <a mat-list-item routerLink="/teams" routerLinkActive="active" class="link link--white" (click)="sidenav.toggle()">Teams</a>
+      <a mat-list-item routerLink="/matches" routerLinkActive="active" class="link link--white" (click)="sidenav.toggle()">Matches</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-navigation (sidenavToggle)="sidenav.toggle()"></app-navigation>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
