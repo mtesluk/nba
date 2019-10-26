@@ -10,3 +10,7 @@ a:hover, a:active{
 .sidenav {
     width: 60%;
 }
+
+mat-sidenav-content {
+    min-height: 100vh;
+}
