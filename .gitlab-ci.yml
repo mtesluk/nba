@@ -15,6 +15,7 @@ verify_version:
   - git diff ${CI_COMMIT_SHA} origin/master --name-only | grep -q CHANGELOG.md || (echo 'changelog not updated!' && exit 1)
   except:
   - master
+  allow_failure: true
 
 static_code_analisys_backend:
   image: python:3.6
@@ -36,6 +37,7 @@ backend_test:
   - apt-get install mariadb-server mariadb-client
   - service mysql start
   - python project/manage.py test project/nba/tests
+  allow_failure: true
   
 static_code_analisys_frontend:
   image: docker

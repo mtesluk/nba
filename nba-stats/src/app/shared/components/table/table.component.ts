@@ -79,11 +79,11 @@ export class TableComponent implements OnInit, AfterViewInit {
         switchMap(() => {
           this.isLoading = true;
           this._filters = {...this.filters, ...this.form.value};
-          if (this.sort.active !== undefined) {
-            this._filters['ordering'] = this.sort.direction === 'asc' ? this.sort.active : `-${this.sort.active}`;
-          }
           if (this.initSorting.length > 0) {
             this._filters['ordering'] = this.initSorting;
+          }
+          if (this.sort.active !== undefined) {
+            this._filters['ordering'] = this.sort.direction === 'asc' ? this.sort.active : `-${this.sort.active}`;
           }
           this._filters['page'] = this.paginator.pageIndex + 1;
           this._filters['page_size'] = this.maxPageSize;
