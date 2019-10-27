@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/services/auth.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { MatDialog } from '@angular/material';
-import { LoginDialogComponent } from '../login/login.component';
+import { LoginDialogComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-navigation',
@@ -10,6 +10,7 @@ import { LoginDialogComponent } from '../login/login.component';
 })
 export class NavigationComponent implements OnInit {
 
+  @Output() public sidenavToggle = new EventEmitter();
   get user() {
     return this._auth.getUserUsername();
   }
@@ -38,5 +39,9 @@ export class NavigationComponent implements OnInit {
 
   openDialog(): void {
     this.dialog.open(LoginDialogComponent, {});
+  }
+
+  onToggleSidenav = () => {
+    this.sidenavToggle.emit();
   }
 }

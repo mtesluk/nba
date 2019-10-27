@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
-import * as GeoJSON from "geojson";
 import { Router } from '@angular/router';
 import { URLS } from 'src/environments/environment';
 import { Topology, Objects } from 'topojson-specification';
@@ -34,14 +33,22 @@ const R_CIRCLE = 6;
 })
 export class MapComponent implements OnInit {
 
+  @ViewChild('container') container: ElementRef;
+  svg = null;
   constructor(
     private _router: Router,
   ) { }
 
   ngOnInit() {
-    const projection = d3.geoAlbersUsa().scale(1500).translate([600, 450]);
+    // d3.select(window)
+    // 	.on("resize", this._sizeChange);
+    // const width = this.container.nativeElement.offsetWidth;
+    // const height = width/960*600;
 
-    const svg = d3.select('div.svg-container')
+    const projection = d3.geoAlbersUsa().scale(1500).translate([600, 450]);
+    // console.log(this.elRef.nativeElement.querySelector('.svg-container'))
+
+    this.svg = d3.select('div.svg-container')
       .style('position', 'relative')
       .append('svg')
       .attr('width', '100%')
@@ -50,7 +57,7 @@ export class MapComponent implements OnInit {
     const path = d3.geoPath()
       .projection(projection);
 
-    const g = svg.append('g');
+    const g = this.svg.append('g');
     g.attr('class', 'map');
 
     const tooltip = d3.select('body').append('div')
@@ -140,4 +147,10 @@ export class MapComponent implements OnInit {
       });
   }
 
+  _sizeChange() {
+    if (this.container) {
+      d3.select("g").attr("transform", "scale(" + this.container.nativeElement.offsetWidth + ")");
+      this.svg.height(this.container.nativeElement.offsetWidth*0.618);
+    }
+  }
 }

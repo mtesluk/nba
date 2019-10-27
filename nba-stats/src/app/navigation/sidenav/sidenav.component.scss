@@ -1,0 +1,16 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+ 
+a:hover, a:active{
+    color: lightgray;
+}
+ 
+.sidenav {
+    width: 60%;
+}
+
+mat-sidenav-content {
+    min-height: 100vh;
+}

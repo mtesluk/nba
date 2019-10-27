@@ -1,8 +1,8 @@
-<div class="container" fxLayout="row">
-  <div class="left-container" fxFlex="60">
+<div class="container" fxLayout="row" fxLayout.lt-lg="column" fxFlex>
+  <div class="left-container" fxFlex="1 1 60%" fxHide.lt-lg>
     <app-map class="map"></app-map>
   </div>
-  <div class="right-container" fxLayout="column" fxLayoutAlign="space-around center" fxFlex="40">
+  <div class="right-container" fxLayout="column" fxLayoutAlign="space-around center" fxFlex.gt-lg="1 1 40%">
     <div class="table">
       <h2>Best players in {{selectedSeason.name}}</h2>
       <app-table

@@ -8,10 +8,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { CookieService } from 'ngx-cookie';
 
 // COMPONENTS
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationComponent } from './navigation/toolbar/navigation.component';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { LoginDialogComponent } from './login/login.component';
 import { PlayersComponent } from './sections/players/players.component';
 import { TeamsComponent } from './sections/teams/teams.component';
@@ -41,6 +41,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
     AdminComponent,
     TableComponent,
     MapComponent,
+    SidenavComponent,
     PageNotFoundComponent,
     AppComponent,
     NavigationComponent,
