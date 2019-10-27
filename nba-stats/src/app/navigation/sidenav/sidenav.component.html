@@ -1,13 +1,18 @@
 <mat-sidenav-container class="container">
-  <mat-sidenav #sidenav mode="side" class="sidenav">
-    <mat-nav-list>
-      <a mat-list-item *ngIf="isAuthenticated()" class="username">{{user}}</a>
-      <a mat-list-item *ngIf="isAuthenticated()">Credit: {{user_credits}}</a>
-      <mat-divider *ngIf="isAuthenticated()"></mat-divider>
+  <mat-sidenav #sidenav mode="side" class="sidenav" fixedInViewport fixedTopGap fixedBottomGap>
+    <div class="sidenav__header" fxLayout="row" fxLayoutAlign="space-around center">
+      <p class="username">{{user || 'Unknown user'}}</p>
+      <p *ngIf="isAuthenticated()">Credit: {{user_credits}}</p>
+    </div>
+    <mat-nav-list class="sidenav__top-list">
+      <mat-divider></mat-divider>
       <a mat-list-item routerLink="" class="link link--white">Dashboard</a>
       <a mat-list-item routerLink="/players" routerLinkActive="active" class="link link--white" (click)="sidenav.toggle()">Players</a>
       <a mat-list-item routerLink="/teams" routerLinkActive="active" class="link link--white" (click)="sidenav.toggle()">Teams</a>
       <a mat-list-item routerLink="/matches" routerLinkActive="active" class="link link--white" (click)="sidenav.toggle()">Matches</a>
+    </mat-nav-list>
+    <mat-nav-list class="sidenav__bottom-list">
+      <mat-divider></mat-divider>
       <a mat-list-item *ngIf="isAdmin()" routerLink="admin" class="link">Admin</a>
       <a mat-list-item *ngIf="isAuthenticated()" routerLink="/" (click)="logout()" class="link">Logout</a>
       <a mat-list-item *ngIf="!isAuthenticated()" (click)="openDialog()" class="link link--white">Login</a>

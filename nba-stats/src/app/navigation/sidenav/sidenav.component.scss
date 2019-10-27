@@ -9,6 +9,18 @@ a:hover, a:active{
  
 .sidenav {
     width: 60%;
+    overflow: hidden;
+
+    &__header {
+        font-weight: 700;
+    }
+    
+    &__bottom-list {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-weight: 700;
+    }
 }
 
 mat-sidenav-content {
