@@ -13,7 +13,7 @@
         <a routerLink="/matches" routerLinkActive="active" class="link link--white">Matches</a>
       </div>
       <div class="nav-account" fxHide.lt-md>
-        <span *ngIf="isAuthenticated()">Credit: {{user_credits}}</span>
+        <span *ngIf="isAuthenticated()">Credits: {{user_credits || '0'}}</span>
         <button *ngIf="isAuthenticated()" mat-button [matMenuTriggerFor]="menu" class="username">{{user}}<mat-icon>format_align_right</mat-icon></button>
         <mat-menu #menu="matMenu">
           <a routerLink="admin" class="link"><button *ngIf="isAdmin()" mat-menu-item>Admin</button></a>

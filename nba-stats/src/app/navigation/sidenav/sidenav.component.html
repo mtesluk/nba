@@ -2,7 +2,7 @@
   <mat-sidenav #sidenav mode="side" class="sidenav" fixedInViewport fixedTopGap fixedBottomGap>
     <div class="sidenav__header" fxLayout="row" fxLayoutAlign="space-around center">
       <p class="username">{{user || 'Unknown user'}}</p>
-      <p *ngIf="isAuthenticated()">Credit: {{user_credits}}</p>
+      <p *ngIf="isAuthenticated()">Credits: {{user_credits || '0'}}</p>
     </div>
     <mat-nav-list class="sidenav__top-list">
       <mat-divider></mat-divider>
