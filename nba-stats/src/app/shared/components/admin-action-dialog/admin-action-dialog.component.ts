@@ -20,7 +20,7 @@ export class AdminActionDialogComponent {
     return Object.values(SEASON_TYPE_MAPPER);
   }
   endpointUrl: string = URLS.teams;
-  seasons: string[] = ['2017-18', '2016-17', '2015-16', '2014-15', '2013-14', '2012-13', '2011-12', '2010-11'];
+  seasons: string[] = ['2019-20', '2018-19', '2017-18', '2016-17', '2015-16', '2014-15', '2013-14', '2012-13', '2011-12', '2010-11'];
   choices: string[] = ['Players and team stats', 'Matches']
   selectedChoice: string = this.choices[0];
   selectedSeason: string = this.seasons[0];
