@@ -1,6 +1,13 @@
 <div class="mat-elevation-z8 table-container" *ngIf="isLoadedFirstTime">
   <div class="table">
-    <mat-spinner *ngIf="isLoading" class="loading-shade"></mat-spinner>
+      <mat-progress-bar
+        class="loading-shade"
+        *ngIf="isLoading"
+        color="primary"
+        mode="indeterminate"
+
+      >
+    </mat-progress-bar>
     
     <table mat-table [dataSource]="data" matSort matSortDisableClear matSortDirection="desc" [ngClass]="{'dark-shadow': isLoading}">  
       <ng-container [matColumnDef]="column" class="column" *ngFor="let column of displayedColumns">

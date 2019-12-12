@@ -9,6 +9,11 @@
     text-decoration: none;
 }
 
+mat-toolbar {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
 .username {
     font-size: 30px;
 }
@@ -29,6 +34,7 @@
 .link {
     text-decoration: none;
     cursor: pointer;
+    font-weight: 100;
 
     &--white {
         color: white;
