@@ -22,6 +22,10 @@ table {
     display: none!important;
 }
 
+.table-container {
+    overflow: auto;
+}
+
 .column-link {
     color: blue;
     margin: auto;
@@ -43,7 +47,7 @@ table {
 }
 
 td {
-    min-width: 30px;
+    min-width: 40px;
 }
 
 .mat-column-number,
