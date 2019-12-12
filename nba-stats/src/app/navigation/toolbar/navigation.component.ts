@@ -38,7 +38,10 @@ export class NavigationComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(LoginDialogComponent, {});
+    this.dialog.open(LoginDialogComponent, {
+      backdropClass: 'dialog-background',
+      width: '20vw',
+    });
   }
 
   onToggleSidenav = () => {

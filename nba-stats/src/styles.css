@@ -20,3 +20,7 @@ body {
     padding-bottom: 5px;
     border-bottom: 1px solid black;
 }
+
+.dialog-background {
+    background-color: rgba(0, 0, 0, 0.8);
+}
