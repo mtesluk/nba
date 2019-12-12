@@ -1,8 +1,8 @@
 <div class="mat-elevation-z8 table-container" *ngIf="isLoadedFirstTime">
-  <div class="table-with-loading">
+  <div class="table">
     <mat-spinner *ngIf="isLoading" class="loading-shade"></mat-spinner>
     
-    <table class="table" mat-table [dataSource]="data" matSort matSortDisableClear matSortDirection="desc" [ngClass]="{'dark-shadow': isLoading}">
+    <table mat-table [dataSource]="data" matSort matSortDisableClear matSortDirection="desc" [ngClass]="{'dark-shadow': isLoading}">  
       <ng-container [matColumnDef]="column" class="column" *ngFor="let column of displayedColumns">
         <span *ngIf="column === 'selectCompare'">
           <th mat-header-cell *matHeaderCellDef>Add</th>
@@ -42,8 +42,8 @@
   <h4>You can select row from main table, this row will occur in table below</h4>
 </div>
 
-<div class="mat-elevation-z8 table-container margin" *ngIf="compare">
-  <table class="table" mat-table [dataSource]="dataCompare">
+<div class="mat-elevation-z8 margin" *ngIf="compare">
+  <table mat-table [dataSource]="dataCompare">
     <div *ngFor="let column of displayedColumns">
       <ng-container [matColumnDef]="column" class="column">
         <span *ngIf="column === 'selectCompare'">
@@ -63,9 +63,9 @@
 <div *ngIf="dataBet.size && compare" class="margin">
   <h2>Bet elements <button mat-stroked-button (click)="bet()">Bet</button></h2>
   <h4>You can order rows according to your predictions and given % bets</h4>
-  <div cdkDropList class="drag-list" (cdkDropListDropped)="drop($event)">
-    <div class="drag-box" *ngFor="let data of dataBet" cdkDrag>
-      <div class="drag-custom-placeholder" *cdkDragPlaceholder></div>
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let data of dataBet" cdkDrag>
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
       <mat-icon>format_line_spacing</mat-icon> {{ data }} <mat-icon (click)="removeBet(data)" class="add-btn">remove_circle_outline</mat-icon>
     </div>
   </div>
