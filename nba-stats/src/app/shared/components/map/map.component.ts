@@ -60,26 +60,6 @@ export class MapComponent implements OnInit {
       .style('z-index', '100')
       .style('padding', '0 10px');
 
-    // const legend = d3.select('div.svg-container').append('div')
-    //   .attr('class', 'legend')
-    //   .style('position', 'absolute')
-    //   .style('right', 0)
-    //   .style('bottom', 0)
-    //   .style('z-index', '100')
-    //   .style('background', 'steelblue')
-    //   .text('dsads')
-    //   .style('padding', '0 10px')
-
-    //   legend.selectAll('circle')
-    //   .datum(COLOR_DIVISION)
-    //   .append('circle')
-    //   .attr('cx', d => { return 500; })
-    //   .attr('cy', (d, i) => { return i*20; })
-    //   .attr('r', R_CIRCLE)
-    //   .attr('fill', (d, i) => {
-    //     return 'red';
-    //   })
-
     d3.json('assets/usa.json').then((topology: Topology<Objects<{ [name: string]: any; }>>) => {
       const mapFeatures = topojson.feature(topology, topology.objects.states) as FeatureCollection
 
@@ -114,20 +94,19 @@ export class MapComponent implements OnInit {
             d3.select(`#city-${d.id}`)
               .attr('r', R_CIRCLE * 2);
 
-            tooltip.transition()
+            tooltip
               .style('display', 'block')
               .style('background', 'steelblue')
               .text(d.name)
               .style('left', (d3.event.pageX - 40) + 'px')
               .style('top', (d3.event.pageY - 40) + 'px')
               .style('cursor', 'none')
-              .duration(500);
         })
         .on('mouseout', d => {
           d3.select(`#city-${d.id}`)
             .attr('r', R_CIRCLE);
 
-          tooltip.transition()
+          tooltip
             .style('display', 'none');
         })
         .on('click', d => {
