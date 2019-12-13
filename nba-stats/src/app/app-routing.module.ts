@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlayersComponent } from './sections/players/players.component';
 import { TeamsComponent } from './sections/teams/teams.component';
-import { MatchesComponent } from './sections/matches/matches.component';
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
-import { MatchComponent } from './sections/match/match.component';
 import { PlayerComponent } from './sections/player/player.component';
 import { TeamComponent } from './sections/team/team.component';
 import { PageNotFoundComponent } from './navigation/page-not-found/page-not-found.component';
@@ -51,18 +49,6 @@ const routes: Routes = [
   {
     path: 'teams/:id',
     component: TeamComponent,
-    canActivate: [AuthGuard],
-    data: {level: 'authenticated'}
-  },
-  {
-    path: 'matches',
-    component: MatchesComponent,
-    canActivate: [AuthGuard],
-    data: {level: null}
-  },
-  {
-    path: 'matches/:id',
-    component: MatchComponent,
     canActivate: [AuthGuard],
     data: {level: 'authenticated'}
   },

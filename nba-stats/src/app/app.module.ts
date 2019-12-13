@@ -15,11 +15,8 @@ import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { LoginDialogComponent } from './login/login.component';
 import { PlayersComponent } from './sections/players/players.component';
 import { TeamsComponent } from './sections/teams/teams.component';
-import { MatchesComponent } from './sections/matches/matches.component';
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
 import { TableComponent } from './shared/components/table/table.component';
-import { MatchlistComponent } from './shared/components/matchlist/matchlist.component';
-import { MatchComponent } from './sections/match/match.component';
 import { PlayerComponent } from './sections/player/player.component';
 import { TeamComponent } from './sections/team/team.component';
 import { StatsComponent } from './shared/components/stats/stats.component';
@@ -53,10 +50,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
     RegistrationDialogComponent,
     AdminActionDialogComponent,
     StatsComponent,
-    MatchesComponent,
     DashboardComponent,
-    MatchlistComponent,
-    MatchComponent,
   ],
   entryComponents: [
     LoginDialogComponent,
