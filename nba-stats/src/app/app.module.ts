@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // COMPONENTS
 import { NavigationComponent } from './navigation/toolbar/navigation.component';
+import { SettingsComponent } from './sections/settings/settings.component'
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { LoginDialogComponent } from './login/login.component';
 import { PlayersComponent } from './sections/players/players.component';
@@ -37,6 +38,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
   declarations: [
     AdminComponent,
     TableComponent,
+    SettingsComponent,
     MapComponent,
     SidenavComponent,
     PageNotFoundComponent,

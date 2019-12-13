@@ -78,9 +78,10 @@
 <div *ngIf="dataBet.size && compare" class="margin">
   <h2>Bet elements <button mat-stroked-button (click)="bet()">Bet</button></h2>
   <h4>You can order rows according to your predictions and given % bets</h4>
-  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let data of dataBet" cdkDrag>
-      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+  <h5>Action costs 5$. Result and prize will occure when official results will appear by NBA</h5>
+  <div cdkDropList class="bet-list" (cdkDropListDropped)="drop($event)">
+    <div class="bet-box" *ngFor="let data of dataBet" cdkDrag>
+      <div class="bet-custom-placeholder" *cdkDragPlaceholder></div>
       <mat-icon>format_line_spacing</mat-icon> {{ data }} <mat-icon (click)="removeBet(data)" class="add-btn">remove_circle_outline</mat-icon>
     </div>
   </div>
