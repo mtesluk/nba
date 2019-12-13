@@ -17,7 +17,8 @@ import { MatButtonModule,
          MatCardModule,
          MatChipsModule,
          MatSnackBarModule,
-         MatDialogModule
+         MatDialogModule,
+         MatProgressBarModule,
         } from '@angular/material';
 
   import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -27,6 +28,7 @@ import { MatButtonModule,
   declarations: [],
   imports: [
     MatButtonModule,
+    MatProgressBarModule,
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
@@ -50,6 +52,7 @@ import { MatButtonModule,
   exports: [
     MatButtonModule,
     DragDropModule,
+    MatProgressBarModule,
     MatSnackBarModule,
     MatInputModule,
     MatSortModule,

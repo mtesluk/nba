@@ -34,11 +34,11 @@ export class AuthService {
     );
   }
 
-  private _fetchUserData(): Observable<User> {
+  fetchUserData(): Observable<User> {
     return this._httpClient.get<User>(URLS.user);
   }
 
-  private _authenticateUser(user: User) {
+  authenticateUser(user: User) {
     this._user = user;
   }
 
@@ -62,8 +62,8 @@ export class AuthService {
       )
     ).pipe(
       map((response: {token: string}) => {
-        this._fetchUserData().subscribe((user: User) => {
-          this._authenticateUser(user);
+        this.fetchUserData().subscribe((user: User) => {
+          this.authenticateUser(user);
         });
       })
     );
@@ -95,10 +95,10 @@ export class AuthService {
 
   shouldBeAuthenticated(): Observable<boolean> {
     this._token = localStorage['token'];
-    return !this._token ? of(false) : this._fetchUserData().pipe(
+    return !this._token ? of(false) : this.fetchUserData().pipe(
       map(
         (response: User) => {
-          this._authenticateUser(response);
+          this.authenticateUser(response);
           return true;
         }
       )

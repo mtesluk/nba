@@ -46,3 +46,10 @@ class TeamViewSet(CommonMixin, viewsets.ModelViewSet):
             except Exception:
                 return response.Response([], status=200)
             return response.Response(cities)
+
+    @decorators.list_route(methods=['post'], permission_classes=[AllowAny, ],)
+    def bet(self, request):
+        profile = request.user.profile
+        profile.credits = profile.credits - 5
+        profile.save()
+        return response.Response('Bet accepted')

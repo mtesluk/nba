@@ -27,6 +27,7 @@ export class LoginDialogComponent {
     this.dialogRef.close();
     this.dialog.open(RegistrationDialogComponent, {
       width: '20vw',
+      backdropClass: 'dialog-background',
     });
   }
 

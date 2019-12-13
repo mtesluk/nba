@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlayersComponent } from './sections/players/players.component';
 import { TeamsComponent } from './sections/teams/teams.component';
-import { MatchesComponent } from './sections/matches/matches.component';
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
-import { MatchComponent } from './sections/match/match.component';
 import { PlayerComponent } from './sections/player/player.component';
 import { TeamComponent } from './sections/team/team.component';
+import { SettingsComponent } from './sections/settings/settings.component'
 import { PageNotFoundComponent } from './navigation/page-not-found/page-not-found.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AdminComponent } from './sections/admin/admin.component';
@@ -55,14 +54,8 @@ const routes: Routes = [
     data: {level: 'authenticated'}
   },
   {
-    path: 'matches',
-    component: MatchesComponent,
-    canActivate: [AuthGuard],
-    data: {level: null}
-  },
-  {
-    path: 'matches/:id',
-    component: MatchComponent,
+    path: 'settings',
+    component: SettingsComponent,
     canActivate: [AuthGuard],
     data: {level: 'authenticated'}
   },

@@ -9,6 +9,7 @@ import { Router, RouterModule } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { NotifyService } from '../../services/notify.service';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../interface/user.interface';
 
 
 @Component({
@@ -79,11 +80,11 @@ export class TableComponent implements OnInit, AfterViewInit {
         switchMap(() => {
           this.isLoading = true;
           this._filters = {...this.filters, ...this.form.value};
-          if (this.initSorting.length > 0) {
-            this._filters['ordering'] = this.initSorting;
-          }
           if (this.sort.active !== undefined) {
             this._filters['ordering'] = this.sort.direction === 'asc' ? this.sort.active : `-${this.sort.active}`;
+          }
+          if (this.initSorting.length > 0) {
+            this._filters['ordering'] = this.initSorting;
           }
           this._filters['page'] = this.paginator.pageIndex + 1;
           this._filters['page_size'] = this.maxPageSize;
@@ -157,8 +158,15 @@ export class TableComponent implements OnInit, AfterViewInit {
   bet() {
     if (!this._authService.isAuthenticated()) {
       this._notificationService.notify('You have no right to bet, sign up or sign in to participate in this action');
+    } else if (this.dataBet.size !== 5) {
+      this._notificationService.notify('Must be 5 elements');
     } else {
-      
+      this._service.postBet(URLS.bet, this.dataBet).subscribe(res => {
+        this._authService.fetchUserData().subscribe((user: User) => {
+          this._authService.authenticateUser(user);
+          this._notificationService.notify(res);
+        });;
+      })
     }
   }
 

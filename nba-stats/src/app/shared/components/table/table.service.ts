@@ -16,4 +16,8 @@ export class TableService {
   getHints(endpointUrl: string, filters?: {[name: string]: string}): Observable<[]> {
     return this._http.get<[]>(endpointUrl, {params: {...filters}});
   }
+
+  postBet(endpointUrl: string, list: Set<string>): Observable<string> {
+    return this._http.post<string>(endpointUrl, list);
+  }
 }

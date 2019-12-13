@@ -1,6 +1,7 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
+import * as GeoJSON from "geojson";
 import { Router } from '@angular/router';
 import { URLS } from 'src/environments/environment';
 import { Topology, Objects } from 'topojson-specification';
@@ -33,22 +34,14 @@ const R_CIRCLE = 6;
 })
 export class MapComponent implements OnInit {
 
-  @ViewChild('container') container: ElementRef;
-  svg = null;
   constructor(
     private _router: Router,
   ) { }
 
   ngOnInit() {
-    // d3.select(window)
-    // 	.on("resize", this._sizeChange);
-    // const width = this.container.nativeElement.offsetWidth;
-    // const height = width/960*600;
-
     const projection = d3.geoAlbersUsa().scale(1500).translate([600, 450]);
-    // console.log(this.elRef.nativeElement.querySelector('.svg-container'))
 
-    this.svg = d3.select('div.svg-container')
+    const svg = d3.select('div.svg-container')
       .style('position', 'relative')
       .append('svg')
       .attr('width', '100%')
@@ -57,7 +50,7 @@ export class MapComponent implements OnInit {
     const path = d3.geoPath()
       .projection(projection);
 
-    const g = this.svg.append('g');
+    const g = svg.append('g');
     g.attr('class', 'map');
 
     const tooltip = d3.select('body').append('div')
@@ -66,26 +59,6 @@ export class MapComponent implements OnInit {
       .style('position', 'absolute')
       .style('z-index', '100')
       .style('padding', '0 10px');
-
-    // const legend = d3.select('div.svg-container').append('div')
-    //   .attr('class', 'legend')
-    //   .style('position', 'absolute')
-    //   .style('right', 0)
-    //   .style('bottom', 0)
-    //   .style('z-index', '100')
-    //   .style('background', 'steelblue')
-    //   .text('dsads')
-    //   .style('padding', '0 10px')
-
-    //   legend.selectAll('circle')
-    //   .datum(COLOR_DIVISION)
-    //   .append('circle')
-    //   .attr('cx', d => { return 500; })
-    //   .attr('cy', (d, i) => { return i*20; })
-    //   .attr('r', R_CIRCLE)
-    //   .attr('fill', (d, i) => {
-    //     return 'red';
-    //   })
 
     d3.json('assets/usa.json').then((topology: Topology<Objects<{ [name: string]: any; }>>) => {
       const mapFeatures = topojson.feature(topology, topology.objects.states) as FeatureCollection
@@ -121,20 +94,19 @@ export class MapComponent implements OnInit {
             d3.select(`#city-${d.id}`)
               .attr('r', R_CIRCLE * 2);
 
-            tooltip.transition()
+            tooltip
               .style('display', 'block')
               .style('background', 'steelblue')
               .text(d.name)
               .style('left', (d3.event.pageX - 40) + 'px')
               .style('top', (d3.event.pageY - 40) + 'px')
               .style('cursor', 'none')
-              .duration(500);
         })
         .on('mouseout', d => {
           d3.select(`#city-${d.id}`)
             .attr('r', R_CIRCLE);
 
-          tooltip.transition()
+          tooltip
             .style('display', 'none');
         })
         .on('click', d => {
@@ -147,10 +119,4 @@ export class MapComponent implements OnInit {
       });
   }
 
-  _sizeChange() {
-    if (this.container) {
-      d3.select("g").attr("transform", "scale(" + this.container.nativeElement.offsetWidth + ")");
-      this.svg.height(this.container.nativeElement.offsetWidth*0.618);
-    }
-  }
 }

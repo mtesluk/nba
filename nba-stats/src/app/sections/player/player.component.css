@@ -1,10 +1,18 @@
-.container {
+.card {
     margin: auto;
     margin-top: 50px;
-    width: 80%;
+    width: 90%;
+    -webkit-box-shadow: 4px 6px 18px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 6px 18px -1px rgba(0,0,0,0.75);
+    box-shadow: 4px 6px 18px -1px rgba(0,0,0,0.75);
 }
 
 .chip-teams {
     margin-left: 10px;
     margin-bottom: 20px;
+}
+
+.row {
+    border-top: 1px solid rgb(112, 110, 110);
+    padding-top: 30px;
 }
