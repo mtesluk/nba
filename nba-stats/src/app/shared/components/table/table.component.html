@@ -52,12 +52,12 @@
   </div>
 </div>
 
-<div *ngIf="compare" class="margin">
+<div *ngIf="compare && !isLoading" class="margin">
   <h2>Compare elements</h2>
   <h4>You can select row from main table, this row will occur in table below</h4>
 </div>
 
-<div class="mat-elevation-z8 margin table-container" *ngIf="compare">
+<div class="mat-elevation-z8 margin table-container" *ngIf="compare && !isLoading">
   <table mat-table [dataSource]="dataCompare">
     <div *ngFor="let column of displayedColumns">
       <ng-container [matColumnDef]="column" class="column">
