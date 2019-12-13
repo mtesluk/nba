@@ -1,5 +1,4 @@
 import json
-import os
 from rest_framework import viewsets, serializers, decorators, response
 from rest_framework.permissions import AllowAny
 from django_filters import rest_framework as filters
@@ -41,8 +40,7 @@ class TeamViewSet(CommonMixin, viewsets.ModelViewSet):
 
     @decorators.list_route(methods=['get'], permission_classes=[AllowAny, ],)
     def coordinates(self, request):
-        print(os.getcwd())
-        with open('nba/views/cities.json', 'r') as file:
+        with open('nba/static/cities.json', 'r') as file:
             try:
                 cities = [{**city, 'id': self.queryset.get(name=city['name']).id} for city in json.load(file)]
             except Exception:
