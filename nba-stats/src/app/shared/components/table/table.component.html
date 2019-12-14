@@ -52,12 +52,11 @@
   </div>
 </div>
 
-<div *ngIf="compare" class="margin">
+<div *ngIf="compare && !isLoading && dataCompare.length" class="mg-tp">
   <h2>Compare elements</h2>
-  <h4>You can select row from main table, this row will occur in table below</h4>
 </div>
 
-<div class="mat-elevation-z8 margin table-container" *ngIf="compare">
+<div class="mat-elevation-z8 table-container mg-bt" *ngIf="compare && !isLoading && dataCompare.length">
   <table mat-table [dataSource]="dataCompare">
     <div *ngFor="let column of displayedColumns">
       <ng-container [matColumnDef]="column" class="column">
@@ -75,7 +74,7 @@
   </table>
 </div>
   
-<div *ngIf="dataBet.size && compare" class="margin">
+<div *ngIf="dataBet.size && compare" class="mg-bt">
   <h2>Bet elements <button mat-stroked-button (click)="bet()">Bet</button></h2>
   <h4>You can order rows according to your predictions and given % bets</h4>
   <h5>Action costs 5$. Result and prize will occure when official results will appear by NBA</h5>

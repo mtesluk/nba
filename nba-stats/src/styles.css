@@ -7,9 +7,8 @@ body {
 }
 
 .snackbar {
-    background-color: rgb(28, 190, 6);
+    background-color: rgba(40, 245, 13, 0.945);
     font-weight: 700;
-    font-size: 40px;
     color: rgb(59, 56, 56);
     width: 15vw;
     height: 8vh;
