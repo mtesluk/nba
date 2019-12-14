@@ -11,7 +11,7 @@ export class NotifyService {
 
   constructor(private _snackBar: MatSnackBar) {
     this.notify$.subscribe(message => {
-      this._snackBar.open(message, 'OK', {
+      this._snackBar.open(message, null, {
         duration: 5000,
         panelClass: ['snackbar'],
         horizontalPosition: 'right',
