@@ -17,7 +17,15 @@ export class AdminComponent implements OnInit {
   }
 
   openDialog(type: string, choices: boolean, seasonsDb: boolean): void {
-    this.dialog.open(AdminActionDialogComponent, {data: {type, choices, seasonsDb}});
+    this.dialog.open(AdminActionDialogComponent, {
+      backdropClass: 'dialog-background',
+      width: '20vw',
+      data: {type, choices, seasonsDb}
+    });
+  }
+
+  reloadPage() {
+    location.reload();
   }
 
 }
