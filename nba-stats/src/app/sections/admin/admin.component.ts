@@ -28,7 +28,7 @@ export class AdminComponent implements OnInit {
   }
 
   goAdmin() {
-    this._router.navigate(['/admin']);
+    window.location.href = 'admin';
   }
 
 }
