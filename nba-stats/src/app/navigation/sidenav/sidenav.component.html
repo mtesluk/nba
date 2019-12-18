@@ -12,7 +12,7 @@
     </mat-nav-list>
     <mat-nav-list class="sidenav__bottom-list">
       <mat-divider></mat-divider>
-      <a mat-list-item *ngIf="isAdmin()" routerLink="admin" class="link">Admin</a>
+      <a mat-list-item *ngIf="isAdmin()" routerLink="main/admin" class="link">Admin</a>
       <a mat-list-item *ngIf="isAuthenticated()" routerLink="settings" class="link">Settings</a>
       <a mat-list-item *ngIf="isAuthenticated()" routerLink="/" (click)="logout()" class="link">Logout</a>
       <a mat-list-item *ngIf="!isAuthenticated()" (click)="openDialog()" class="link link--white">Login</a>
