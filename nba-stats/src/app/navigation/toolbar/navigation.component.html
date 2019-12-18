@@ -14,7 +14,7 @@
       <div class="nav-account" fxHide.lt-md>
         <button *ngIf="isAuthenticated()" mat-button [matMenuTriggerFor]="menu" class="username">{{ user }}</button>
         <mat-menu #menu="matMenu">
-          <a routerLink="admin" class="link"><button *ngIf="isAdmin()" mat-menu-item>Admin</button></a>
+          <a routerLink="main/admin" class="link"><button *ngIf="isAdmin()" mat-menu-item>Admin</button></a>
           <a routerLink="settings" class="link"><button mat-menu-item>Settings</button></a>
           <a routerLink="/" (click)="logout()" class="link"><button mat-menu-item>Logout</button></a>
         </mat-menu>
