@@ -30,7 +30,6 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
-
 class GameCollector:
 
     def fetch(self, season, seasontype):

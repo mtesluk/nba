@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
-import * as GeoJSON from "geojson";
 import { Router } from '@angular/router';
 import { URLS } from 'src/environments/environment';
 import { Topology, Objects } from 'topojson-specification';
@@ -61,7 +60,7 @@ export class MapComponent implements OnInit {
       .style('padding', '0 10px');
 
     d3.json('assets/usa.json').then((topology: Topology<Objects<{ [name: string]: any; }>>) => {
-      const mapFeatures = topojson.feature(topology, topology.objects.states) as FeatureCollection
+      const mapFeatures = topojson.feature(topology, topology.objects.states) as FeatureCollection;
 
       g.selectAll('path')
         .data(mapFeatures.features)
@@ -100,7 +99,7 @@ export class MapComponent implements OnInit {
               .text(d.name)
               .style('left', (d3.event.pageX - 40) + 'px')
               .style('top', (d3.event.pageY - 40) + 'px')
-              .style('cursor', 'none')
+              .style('cursor', 'none');
         })
         .on('mouseout', d => {
           d3.select(`#city-${d.id}`)

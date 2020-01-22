@@ -5,7 +5,7 @@ import { TeamsComponent } from './sections/teams/teams.component';
 import { DashboardComponent } from './sections/dashboard/dashboard.component';
 import { PlayerComponent } from './sections/player/player.component';
 import { TeamComponent } from './sections/team/team.component';
-import { SettingsComponent } from './sections/settings/settings.component'
+import { SettingsComponent } from './sections/settings/settings.component';
 import { PageNotFoundComponent } from './navigation/page-not-found/page-not-found.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AdminComponent } from './sections/admin/admin.component';

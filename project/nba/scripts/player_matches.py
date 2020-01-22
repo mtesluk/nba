@@ -93,13 +93,13 @@ for team, team_id in nba_dict.items():
     player_list = []
     for player in players:
         player_list.append([player[i] for i in (3, -1)])  # name and player_id
-    data[team]=player_list
+    data[team] = player_list
     time.sleep(5)
 
 for team, players in data.items():
     team_players_matches = []
     for player in players:
-        logger.info("[{}] - getting matches for {}".format(team, player[0])) 
+        logger.info("[{}] - getting matches for {}".format(team, player[0]))
         playermatches = playergamelog.PlayerGameLog(player_id=player[1], season=season, season_type_all_star=season_type)
         matches_raw = json.loads(playermatches.get_normalized_json())
         matches = matches_raw['PlayerGameLog']
@@ -120,16 +120,15 @@ for team, players in data.items():
 
     if not os.path.isdir(csv_outfile.rsplit('/', 1)[0]):
         os.makedirs(csv_outfile.rsplit('/', 1)[0])
-    
+
     if team_players_matches == []:
         continue
 
     with open(json_outfile, 'w') as f:
         json.dump(team_players_matches[:], f)
-    keys = team_players_matches [0].keys()
+    keys = team_players_matches[0].keys()
     with open(csv_outfile, 'w') as csv_file:
         csv_writer = csv.DictWriter(csv_file, keys)
         csv_writer.writeheader()
         for match in team_players_matches:
             csv_writer.writerow(match)
-

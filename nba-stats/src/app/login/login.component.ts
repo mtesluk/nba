@@ -16,12 +16,14 @@ export class LoginDialogComponent {
   username: string;
   password: string;
 
-  constructor(private _auth: AuthService,
+  constructor(
+    private _auth: AuthService,
     private _router: Router,
     private _notifyService: NotifyService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LoginDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {}) {}
+    @Inject(MAT_DIALOG_DATA) public data: {}
+  ) {}
 
   redirectToRegistration(): void {
     this.dialogRef.close();

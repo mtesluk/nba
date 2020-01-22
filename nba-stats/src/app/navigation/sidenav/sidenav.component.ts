@@ -17,15 +17,15 @@ export class SidenavComponent implements OnInit {
   get user_credits() {
     return this._auth.getUserCredits();
   }
- 
+
   constructor(
     private _auth: AuthService,
     public dialog: MatDialog,
   ) { }
- 
+
   ngOnInit() {
   }
- 
+
   onSidenavClose = () => {
     this.sidenavClose.emit();
   }
