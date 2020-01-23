@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
 import { URLS } from 'src/environments/environment';
 import { Season } from 'src/app/shared/interface/season.interface';
@@ -15,13 +15,13 @@ const SEASON_TYPE_MAPPER: {[name: string]: string} = {RS: 'Regular Season'};
     AdminActionDialogService,
   ]
 })
-export class AdminActionDialogComponent {
+export class AdminActionDialogComponent implements OnInit {
   get seasonTypes() {
     return Object.values(SEASON_TYPE_MAPPER);
   }
   endpointUrl: string = URLS.teams;
   seasons: string[] = ['2019-20', '2018-19', '2017-18', '2016-17', '2015-16', '2014-15', '2013-14', '2012-13', '2011-12', '2010-11'];
-  choices: string[] = ['Players and team stats', 'Matches']
+  choices: string[] = ['Players and team stats', 'Matches'];
   selectedChoice: string = this.choices[0];
   selectedSeason: string = this.seasons[0];
   selectedSeasonType: string = this.seasonTypes[0];
@@ -54,7 +54,7 @@ export class AdminActionDialogComponent {
     ).subscribe((response: {message: string}) => {
       this._notificationService.notify(response.message);
       this.dialogRef.close();
-    })
+    });
   }
 
 }

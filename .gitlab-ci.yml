@@ -1,21 +1,7 @@
 stages:
-  - verify_version
-  - code_analisys_django
   - test_django
+  - code_analisys_django
   - code_analisys_angular
-
-variables:
-  MYSQL_DATABASE: nba
-  MYSQL_ROOT_PASSWORD: root
-
-verify_version:
-  image: python:3.6
-  stage: verify_version
-  script:
-  - git diff ${CI_COMMIT_SHA} origin/master --name-only | grep -q CHANGELOG.md || (echo 'changelog not updated!' && exit 1)
-  except:
-  - master
-  allow_failure: true
 
 static_code_analisys_backend:
   image: python:3.6
@@ -34,9 +20,10 @@ backend_test:
   - pip install -r requirements.txt
   stage: test_django
   script:
-  - apt-get install mariadb-server mariadb-client
-  - service mysql start
-  - python project/manage.py test project/nba/tests
+  - cd project/
+  - rm project/setting_db.py
+  - mv project/setting_db_.py project/setting_db.py
+  - python manage.py test tests
   allow_failure: true
   
 static_code_analisys_frontend:

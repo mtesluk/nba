@@ -1,12 +1,12 @@
 from rest_framework.test import APIClient, APITestCase, RequestsClient
-from account.models import *
+from account.models import Profile
 from django.contrib.auth.models import User
-from nba.models import *
+from nba.models import Stat, Season, Team, TeamStat
 
 
 class TeamTests(APITestCase):
     def setUp(self):
-        client = RequestsClient()
+        self.client = APIClient()
         self.teams_name = ['AA', 'CC', 'BB', 'DD', 'EE', 'FF', 'RR', 'GG', 'GH', 'FD', 'RT', 'RA']
         self.username = 'user1'
         self.password = 'pass1'
@@ -71,11 +71,9 @@ class TeamTests(APITestCase):
         data = response.json()
         results = data['results']
 
-
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(results), 10)
         self.assertEqual(sorted_names, [result['name'] for result in results])
-        
 
     def test_bet_teams(self):
         self.client.login(username=self.username, password=self.password)

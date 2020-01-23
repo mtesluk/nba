@@ -1,5 +1,5 @@
 from django.contrib import admin
-from nba.models import *
+from nba.models import Stat, Player, Team, Affiliation, Season, PlayerStat, TeamStat
 
 
 class StatAdmin(admin.ModelAdmin):

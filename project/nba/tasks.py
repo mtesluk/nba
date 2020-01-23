@@ -14,6 +14,7 @@ def download(season, season_type=None):
         StatsScraper().fetch(season)
     return 'Task fetch executed'
 
+
 @shared_task
 def insert(season, season_type):
     Command().handle(season=season, season_type=season_type)

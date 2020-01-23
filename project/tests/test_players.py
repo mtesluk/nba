@@ -1,12 +1,12 @@
 from rest_framework.test import APIClient, APITestCase
-from account.models import *
+from account.models import Profile
 from django.contrib.auth.models import User
-from nba.models import *
+from nba.models import Season, Stat, Player, PlayerStat
 
 
 class PlayersTests(APITestCase):
     def setUp(self):
-        client = APIClient()
+        self.client = APIClient()
         self.players_name = ['AA', 'CC', 'BB', 'DD', 'EE', 'FF', 'RR', 'GG', 'GH', 'FD', 'RT', 'RA']
         self.username = 'user1'
         self.password = 'pass1'
@@ -70,7 +70,6 @@ class PlayersTests(APITestCase):
         response = self.client.get('/api/v1/players/', params)
         data = response.json()
         results = data['results']
-
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(results), 10)

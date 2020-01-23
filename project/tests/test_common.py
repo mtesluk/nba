@@ -1,12 +1,12 @@
 from rest_framework.test import APIClient, APITestCase
-from account.models import *
+from account.models import Profile
 from django.contrib.auth.models import User
-from nba.models import *
+from nba.models import Season
 
 
 class PlayersTests(APITestCase):
     def setUp(self):
-        client = APIClient()
+        self.client = APIClient()
         Season.objects.create(name='2017-18')
         self.username = 'user1'
         self.password = 'pass1'

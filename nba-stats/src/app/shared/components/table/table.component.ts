@@ -106,7 +106,7 @@ export class TableComponent implements OnInit, AfterViewInit {
             this.displayedColumns  = Object.keys(value).concat(this.additionalColumns);
             this.displayedColumns = this.displayedColumns.filter(elem => !this.excludeColumns.includes(elem));
             if (this.compare) {
-              this.displayedColumns.push('selectCompare')
+              this.displayedColumns.push('selectCompare');
             }
             return {...value, ...stats};
           });
@@ -165,8 +165,8 @@ export class TableComponent implements OnInit, AfterViewInit {
         this._authService.fetchUserData().subscribe((user: User) => {
           this._authService.authenticateUser(user);
           this._notificationService.notify(res);
-        });;
-      })
+        });
+      });
     }
   }
 
