@@ -1,33 +1,29 @@
-# nba-stats
+# NBA stats
 
-Our project for university project
+Project for Engineer’s Thesis, which is using relational database to store NBA statistics, serving them by Django Rest Framework and managing with Angular on client side. Built with CI methodology with Gitlab service.
 
-# Backend
+## PROJECT BACKEND
 Python 3.6.7
+Django 2.0.7
 
-# Frontend
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+#Requirements
+To install libs in virtualenv exec 'pip install -r requirements.txt'
 
-## Development server
+#Server
+To run deveopment server exec 'python manage.py runserver'
+To run production server exec 'gunicorn project.wsgi'
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#Tests
+To run test exec 'python manage.py test'
 
-## Code scaffolding
+## NBA-STATS FRONTEND
+Angular 7
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#Requirements
+To install exec 'npm install -g @angular/cli@7' and than 'npm install'
 
-## Build
+#Server
+To run server exec 'ng start'
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#Build
+To compile app run 'ng build --prod'
