@@ -1,7 +1,7 @@
 django==2.1.5
 flake8
 tox
-djangorestframework==3.7.7
+djangorestframework==3.11.2
 django_extensions
 markdown
 django-filter
