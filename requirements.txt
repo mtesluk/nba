@@ -5,7 +5,7 @@ djangorestframework==3.7.7
 django_extensions
 markdown
 django-filter
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 idna==2.8
 nba-api==1.1.4
